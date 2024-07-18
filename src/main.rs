@@ -3,7 +3,7 @@ use std::io::{Read, Write};
 use std::thread;
 use rusqlite::{Connection, Result};
 
-const DB_NAME: &str = "server.db";
+const DB_NAME: &str = "/root/server.db";
 
 fn handle_client(mut stream: TcpStream, db_conn: Connection) -> Result<()> {
     let mut buffer = [0; 512];
