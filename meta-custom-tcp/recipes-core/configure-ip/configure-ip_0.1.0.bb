@@ -5,15 +5,11 @@ SRC_URI = "file://configure-ip.sh file://configure-ip.service"
 RDEPENDS:${PN} = "bash"
 
 do_install() {
-    echo "haha"
-    echo ${bindir}
-    echo ${D}${systemd_unitdir}/system/configure-ip.service
     install -d ${D}${bindir}
     install -m 0755 ${WORKDIR}/configure-ip.sh ${D}${bindir}/configure-ip.sh
 
     install -d ${D}${systemd_unitdir}/system
     install -m 0644 ${WORKDIR}/configure-ip.service ${D}${systemd_unitdir}/system/configure-ip.service
-    echo "sraka"
 }
 
 FILES:${PN} += "${systemd_unitdir}/system/configure-ip.service"
